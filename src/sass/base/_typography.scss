@@ -1,0 +1,8 @@
+@use "../abstracts/variables" as *;
+
+body {
+    height: 100vh;
+    background-image: $background-image;
+    font-family: 'Montserrat', sans-serif;
+
+}

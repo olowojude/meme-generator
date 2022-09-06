@@ -4,7 +4,7 @@ import "./navbar.scss";
 export default function Navbar() {
   return (
     <nav>
-      <h1 className="header"> Meme Generator </h1>
+      <h1 className="header-text"> Meme Generator </h1>
     </nav>
     )
 }

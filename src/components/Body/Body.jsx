@@ -44,7 +44,10 @@ export default function Body() {
                 value={formData.bottomText}/><br />
                 
                 
-                <button className="button">Get new meme image</button>
+                <input 
+                type="submit" 
+                className="button"
+                value="Get new meme image" />
             </form>
             <div className="meme-image"></div>
         </div>

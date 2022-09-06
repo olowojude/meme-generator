@@ -1,0 +1,12 @@
+@use "./variables" as *;
+
+// input and button mixin
+
+@mixin input-btn {
+    width: 30em;
+    padding: $big $normal;
+    margin: $normal 0;
+    border-radius: $big;
+    outline: none;
+    border: 1px solid black;
+}

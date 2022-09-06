@@ -1,0 +1,25 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+// container component
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: $extra-large;
+}
+
+// input component 
+.input {
+    @include input-btn();
+}
+
+// button component 
+.button {
+    @include input-btn();
+    width: 32em;
+    cursor: pointer;
+    padding: $normal-pro;
+
+}
