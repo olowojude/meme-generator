@@ -1,28 +1,53 @@
 import React from "react";
-import "./body.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 
 export default function Body() {
-    const [formData, setFormData] = useState({
+    const [meme, setMeme] = useState({
         topText: "",
         bottomText: "",
-    })
+        randomImage: ""
+    }) 
 
+    // fetching our data from api
+    useEffect(() => {
+        fetch("https://api.imgflip.com/get_memes")
+        .then(response => response.json())
+        .then(data => setMemeArray(data.data.memes))
+    }, [])
+
+    // state to handle our all our memes data that we get from the api
+    const [memeArray, setMemeArray] = useState([])
+
+
+    // then loop over the meme array above to get one image at a time
+    function getMeme() {
+        const randomNumber = Math.floor(Math.random() * memeArray.length)
+        const url = memeArray[randomNumber].url
+        setMeme(prevData => ({
+            ...prevData,
+            randomImage: url
+        }))
+    }
+
+    // handling the change in the inputs
     function handleChange(event) {
 
-        const {name, value, type, checked} = event.target
-        setFormData(prevFormData => {
+        const {name, value} = event.target
+        setMeme(prevData => {
            return {
-            ...prevFormData,
-            [name]: type === "checkbox" ? checked : value
+            ...prevData,
+            [name]: value
            }
         })
     } 
 
+
+
     function handleSubmit(event) {
         event.preventDefault()
 
-        console.log(formData)
+        console.log(meme)
     }
     return (
         <div>
@@ -33,7 +58,7 @@ export default function Body() {
                 name="topText" 
                 onChange={handleChange} 
                 placeholder="Top text" 
-                value={formData.topText} /><br />
+                value={meme.topText} /><br />
                 
                 <input 
                 type="text" 
@@ -41,15 +66,21 @@ export default function Body() {
                 name="bottomText" 
                 onChange={handleChange} 
                 placeholder="Bottom text" 
-                value={formData.bottomText}/><br />
+                value={meme.bottomText}/><br />
                 
                 
                 <input 
                 type="submit" 
                 className="button"
-                value="Get new meme image" />
+                value="Get new meme image"
+                onClick={getMeme} 
+                />
             </form>
-            <div className="meme-image"></div>
+            <div className="meme-image">
+                <img src={meme.randomImage} alt="meme-image" />
+                <h1 className="topText">{meme.topText}</h1>
+                <h1 className="bottomText">{meme.bottomText}</h1>
+            </div>
         </div>
     )
 
