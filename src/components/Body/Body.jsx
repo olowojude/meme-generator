@@ -77,9 +77,9 @@ export default function Body() {
                 />
             </form>
             <div className="meme-image">
-                <img src={meme.randomImage} alt="meme-image" />
-                <h1 className="topText">{meme.topText}</h1>
-                <h1 className="bottomText">{meme.bottomText}</h1>
+                {meme.randomImage && <img src={meme.randomImage} alt="meme-image" />}
+                {meme.randomImage && <h1 className="topText">{meme.topText}</h1>}
+                {meme.randomImage && <h1 className="bottomText">{meme.bottomText}</h1>}
             </div>
         </div>
     )

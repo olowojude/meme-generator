@@ -19,6 +19,24 @@
 .input {
     @include input();
 }
+@include tab {
+    .input {
+        @include input();
+        width: 23em;
+    }
+}
+@include big-phone {
+    .input {
+        @include input();
+        width: 18em;
+    }
+}
+@include small-phone {
+    .input {
+        @include input();
+        width: 15em;
+    }
+}
 
 // button component 
 .button {
@@ -26,6 +44,23 @@
     width: 32em;
     cursor: pointer;
 }
+@include tab {
+    .button {
+        width: 25em;
+    }
+}
+@include big-phone {
+    .button {
+        width: 20em;
+    }
+}
+@include small-phone {
+    .button {
+        width: 17em;
+    }
+}
+
+
 // meme component 
 .meme-image {
     position: relative;
@@ -47,5 +82,49 @@
     .bottomText {
         @include text();
         bottom: 5%;
+    }
+}
+@include tab {
+    .meme-image {
+        width: 28em;
+
+        img {
+            width: 28em;
+            height: 26em;
+        }
+        .topText, .bottomText {
+            @include text();
+            font-size: $big;
+        }
+    }
+}
+
+@include big-phone {
+    .meme-image {
+        width: 22em;
+
+        img {
+            width: 21em;
+            height: 22em;
+        }
+        .topText, .bottomText {
+            @include text();
+            font-size: $normal-pro;
+        }
+    }
+}
+
+@include small-phone {
+    .meme-image {
+        width: 18em;
+
+        img {
+            width: 18em;
+            height: 20em;
+        }
+        .topText, .bottomText {
+            @include text();
+            font-size: $normal-pro;
+        }
     }
 }
