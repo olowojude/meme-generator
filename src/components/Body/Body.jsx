@@ -53,6 +53,13 @@ export default function Body() {
         <div>
             <form className="form" onSubmit={handleSubmit}>
                 <input 
+                type="submit" 
+                className="button"
+                value="Get new meme image"
+                onClick={getMeme} 
+                />
+
+                <input 
                 type='text' 
                 className='input' 
                 name="topText" 
@@ -68,13 +75,6 @@ export default function Body() {
                 placeholder="Bottom text" 
                 value={meme.bottomText}/><br />
                 
-                
-                <input 
-                type="submit" 
-                className="button"
-                value="Get new meme image"
-                onClick={getMeme} 
-                />
             </form>
             <div className="meme-image">
                 {meme.randomImage && <img src={meme.randomImage} alt="meme-image" />}
