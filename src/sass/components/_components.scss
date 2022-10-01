@@ -116,6 +116,16 @@
             width: 21em;
             height: 22em;
         }
+
+        .topText {
+            @include text();
+            font-size: 1em;
+        }
+
+        .bottomText {
+            @include text();
+            font-size: 1em;
+        }
     }
 }
 
