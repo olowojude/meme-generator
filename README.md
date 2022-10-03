@@ -1,2 +1,2 @@
 # meme-generator
- A meme generator built in React
+ A meme generator built with React and Sass
